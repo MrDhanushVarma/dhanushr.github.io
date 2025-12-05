@@ -1,1 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dhanush Rudraraju - CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #020617;
+      --card: #0b1120;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.08);
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --chip-bg: rgba(15, 23, 42, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.9),
+        rgba(17, 24, 39, 0.98)
+      );
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
+      overflow: hidden;
+      position: relative;
+      padding: 28px 28px 32px;
+    }
+
+    /* subtle gradient glow */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.16), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(147, 51, 234, 0.12), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 18px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      .page {
+        padding: 20px 16px 24px;
+        border-radius: 18px;
+      }
+    }
+
+    .headline {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .name {
+      font-size: clamp(1.9rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .name span.accent-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.7);
+    }
+
+    .title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text-soft);
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.9),
+        rgba(31, 41, 55, 0.9)
+      );
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #e5e7eb;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.85rem;
+      gap: 6px;
+      align-items: flex-end;
+    }
+
+    @media (max-width: 768px) {
+      .contact {
+        align-items: flex-start;
+      }
+    }
+
+    .contact a {
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.7);
+      padding-bottom: 1px;
+    }
+
+    .contact a:hover {
+      color: var(--accent);
+      border-bottom-style: solid;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 768px) {
+      .contact-row {
+        justify-content: flex-start;
+      }
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding: 14px 14px 16px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(30, 64, 175, 0.65);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-alt {
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span.label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .section-title span.pill {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.6);
+      color: #e5e7eb;
+    }
+
+    .summary-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .summary-text strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .item {
+      margin-bottom: 10px;
+      padding: 8px 9px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 3px;
+    }
+
+    .item-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .item-meta {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .item-sub {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .item-description {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: var(--chip-bg);
+      color: #d1d5db;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .skills-group {
+      flex: 1 1 120px;
+      min-width: 0;
+    }
+
+    .skills-group-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    .skill-list span {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .right-column .section {
+      padding: 12px 12px 14px;
+    }
+
+    .links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+
+    .links-list a {
+      text-decoration: none;
+      color: var(--text-main);
+      display: inline-flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .links-list a span.secondary {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-left: 8px;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 10px;
+      font-size: 0.72rem;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(75, 85, 99, 0.7);
+    }
+
+    @media (max-width: 540px) {
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="headline">
+        <div class="name">
+          <span>Dhanush Rudraraju</span>
+          <span class="accent-dot"></span>
+        </div>
+        <div class="title">
+          Integrated PhD Student in Physics · Black Hole Thermodynamics, QFT & String Theory
+        </div>
+        <div class="meta-badges">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Integrated PhD · SPS
+          </div>
+          <div class="badge">
+            MSc Project: Black Hole Thermodynamics
+          </div>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="contact-row">
+          <span>Email:
+            <a href="mailto:dhanushrudraraju@example.com">dhanushrudraraju@example.com</a>
+          </span>
+        </div>
+        <div class="contact-row">
+          <span>Location: Visakhapatnam, India</span>
+        </div>
+        <div class="contact-row">
+          <a href="tel:+91XXXXXXXXXX">+91-XXXXXXXXXX</a>
+          <a href="https://scholar.google.com" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://orcid.org" target="_blank" rel="noreferrer">ORCID</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+      <!-- ===== LEFT COLUMN ===== -->
+      <section class="left-column">
+        <!-- Profile / Summary -->
+        <div class="section section-alt">
+          <div class="section-title">
+            <span class="label">Profile</span>
+            <span class="pill">Research-focused</span>
+          </div>
+          <p class="summary-text">
+            I am a <strong>2nd year Integrated PhD student in Physics</strong> with interests in
+            <strong>black hole thermodynamics, quantum field theory, and string theory</strong>.
+            I enjoy bridging formal theory with computational tools, and I’m especially interested in how
+            <strong>gravity, quantum information and thermodynamics</strong> intersect.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+          <div class="section-title">
+            <span class="label">Education</span>
+          </div>
+
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">Integrated PhD in Physics</div>
+              <div class="item-meta">2023 – Present</div>
+            </div>
+            <div class="item-sub">
+              School of Physical Sciences (SPS) · India
+            </div>
+            <div class="item-description">
+              Coursework in quantum field theory, general relativity, quantum information, and statistical mechanics.
+              Current focus on black hole thermodynamics and related aspects of high-energy theory.
+            </div>
+            <div class="chips">
+              <span class="chip">CGPA: X.XX / 10</span>
+              <span class="chip">Teaching Assistantship</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">MSc in Physics</div>
+              <div class="item-meta">2021 – 2023</div>
+            </div>
+            <div class="item-sub">
+              Department of Physics, [Your Institute Name]
+            </div>
+            <div class="item-description">
+              MSc project on <strong>Black Hole Thermodynamics</strong>, exploring entropy, Hawking radiation
+              and the thermodynamic interpretation of gravitational systems.
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">BSc in Physics</div>
+              <div class="item-meta">2018 – 2021</div>
+            </div>
+            <div class="item-sub">
+              [College Name], Visakhapatnam, India
+            </div>
+            <div class="item-description">
+              Core training in classical mechanics, electrodynamics, quantum mechanics and mathematical methods.
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Experience -->
+        <div class="section">
+          <div class="section-title">
+            <span class="label">Research Experience</span>
+          </div>
+
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">MSc Project: Black Hole Thermodynamics</div>
+              <div class="item-meta">Supervisor: Prof. [Name]</div>
+            </div>
+            <div class="item-sub">
+              Topic: Entropy, Hawking Radiation & Thermodynamic Laws for Black Holes
+            </div>
+            <div class="item-description">
+              Studied the <strong>Bekenstein–Hawking entropy</strong>, the four laws of black hole mechanics,
+              and semi-classical derivations of Hawking radiation. Explored connections to quantum information
+              and possible resolutions of the information paradox.
+            </div>
+            <div class="chips">
+              <span class="chip">GR & QFT</span>
+              <span class="chip">Thermodynamics</span>
+              <span class="chip">Information Theory (basic)</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">Course / Mini Projects</div>
+              <div class="item-meta">Ongoing / Past</div>
+            </div>
+            <div class="item-description">
+              <ul style="padding-left: 18px; margin-top: 4px;">
+                <li style="margin-bottom: 2px;">
+                  Numerical exploration of <strong>stellar evolution</strong> using simple models and EOS assumptions.
+                </li>
+                <li style="margin-bottom: 2px;">
+                  Reading projects on <strong>sigma models in string theory</strong> and supersymmetric gauge theories.
+                </li>
+                <li>
+                  Problem-solving focused preparation for <strong>CSIR-NET</strong> and related exams (advanced mechanics, EM, QM).
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== RIGHT COLUMN ===== -->
+      <section class="right-column">
+        <!-- Research Interests -->
+        <div class="section section-alt">
+          <div class="section-title">
+            <span class="label">Research Interests</span>
+          </div>
+          <div class="chips">
+            <span class="chip">Black Hole Thermodynamics</span>
+            <span class="chip">Quantum Field Theory</span>
+            <span class="chip">Quantum Gravity & String Theory</span>
+            <span class="chip">Supersymmetric Gauge Theories</span>
+            <span class="chip">Quantum Information & Gravity (learning)</span>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+          <div class="section-title">
+            <span class="label">Skills</span>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skills-group">
+              <div class="skills-group-title">Theoretical</div>
+              <div class="skill-list">
+                <span>Classical Mechanics</span>
+                <span>Electrodynamics</span>
+                <span>Quantum Mechanics</span>
+                <span>Statistical Mechanics</span>
+                <span>QFT (grad-level)</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <div class="skills-group-title">Programming</div>
+              <div class="skill-list">
+                <span>Python</span>
+                <span>NumPy</span>
+                <span>Matplotlib</span>
+                <span>LaTeX</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <div class="skills-group-title">Other</div>
+              <div class="skill-list">
+                <span>Scientific Writing</span>
+                <span>Teaching Assistance</span>
+                <span>Problem Solving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievements / Exams -->
+        <div class="section">
+          <div class="section-title">
+            <span class="label">Exams & Achievements</span>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">CSIR-NET Physics</div>
+              <div class="item-meta">[Year, Rank]</div>
+            </div>
+            <div class="item-description">
+              Qualified CSIR-NET in Physics with [percentile / rank]. Strong performance in quantum mechanics,
+              electrodynamics and mathematical physics sections.
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-header">
+              <div class="item-title">Other Exams</div>
+              <div class="item-meta">[Add details]</div>
+            </div>
+            <div class="item-description">
+              List any other competitive exams (JEST, GATE, IIT-JAM, institute tests) and ranks here.
+            </div>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="section">
+          <div class="section-title">
+            <span class="label">Links</span>
+          </div>
+          <div class="links-list">
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>CV (PDF)</span>
+              <span class="secondary">Download</span>
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>Google Scholar</span>
+              <span class="secondary">Publications & citations</span>
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <span class="secondary">Code & notes</span>
+            </a>
+            <a href="#" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <span class="secondary">Professional profile</span>
+            </a>
+          </div>
+          <p class="tagline">
+            Replace the placeholders above with your actual links.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div>Last updated: Dec 2025</div>
+      <div>Feel free to contact me for research discussions or opportunities.</div>
+    </footer>
+  </div>
+</body>
+</html>
 
